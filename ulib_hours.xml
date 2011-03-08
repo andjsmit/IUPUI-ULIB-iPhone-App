@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ulib_hours>
+  <updated>2011-02-24</updated>
+  <date_range>
+	  <start>2011-01-01</start>
+		<end>2011-07-01</end>
+	</date_range>
+	<regular_hours>
+	  <hours start_date="2011-01-01" end_date="2011-06-15">
+			<day name="Sunday">
+			  <open>10:00</open>
+				<close>00:00</close>
+			</day>
+			<day name="Monday">
+			  <open>07:30</open>
+				<close>00:00</close>
+			</day>
+			<day name="Tuesday">
+			  <open>07:30</open>
+				<close>00:00</close>
+			</day>
+			<day name="Wednesday">
+			  <open>07:30</open>
+				<close>00:00</close>
+			</day>
+			<day name="Thursday">
+			  <open>07:30</open>
+				<close>00:00</close>
+			</day>
+			<day name="Friday">
+			  <open>07:30</open>
+				<close>21:00</close>
+			</day>
+			<day name="Saturday">
+			  <open>08:00</open>
+				<close>18:00</close>
+			</day>
+		</hours>
+	  <hours start_date="2011-06-16" end_date="2011-07-01">
+			<day name="Sunday">
+			  <open>12:00</open>
+				<close>17:00</close>
+			</day>
+			<day name="Monday">
+			  <open>07:30</open>
+			  <close>17:00</close>
+			</day>
+			<day name="Tuesday">
+			  <open>07:30</open>
+			  <close>17:00</close>
+			</day>
+			<day name="Wednesday">
+			  <open>07:30</open>
+			  <close>17:00</close>
+			</day>
+			<day name="Thursday">
+			  <open>07:30</open>
+			  <close>17:00</close>
+			</day>
+			<day name="Friday">
+			  <open>07:30</open>
+			  <close>17:00</close>
+			</day>
+			<day name="Saturday">
+			  <open>10:00</open>
+				<close>17:00</close>
+			</day>
+		</hours>
+	</regular_hours>
+	<exceptions>
+	  <date date="2011-03-14">
+		  <open>07:30</open>
+			<close>18:00</close>
+			<description>Spring Break</description>
+		</date>
+		<date date="2011-03-15">
+		  <open>07:30</open>
+			<close>18:00</close>
+			<description>Spring Break</description>
+		</date>
+		<date date="2011-03-16">
+		  <open>07:30</open>
+			<close>18:00</close>
+			<description>Spring Break</description>
+		</date>
+		<date date="2011-03-17">
+		  <open>07:30</open>
+			<close>18:00</close>
+			<description>Spring Break</description>
+		</date>
+		<date date="2011-03-18">
+		  <open>07:30</open>
+			<close>18:00</close>
+			<description>Spring Break</description>
+		</date>	
+		<date date="2011-04-24">
+		  <open>12:00</open>
+			<close>18:00</close>
+			<description>Easter Sunday</description>
+		</date>
+	</exceptions>
+</ulib_hours>

@@ -1,0 +1,23 @@
+# xcode noise
+build/*
+*.pbxuser
+*.mode1v3
+
+# old skool
+.svn
+
+# osx noise
+.DS_Store
+profile
+
+# Generated files
+build/
+*.pyc
+*~.nib/
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.xcworkspace/
+xcuserdata/ 
+
+# From http://stackoverflow.com/questions/456403/can-git-be-integrated-with-xcode 
