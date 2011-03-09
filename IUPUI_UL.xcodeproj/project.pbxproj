@@ -18,6 +18,7 @@
 		A108F6C11312CD3A00C0BA44 /* HoursViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A108F6BF1312CD3A00C0BA44 /* HoursViewController.m */; };
 		A108F6C21312CD3A00C0BA44 /* HoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A108F6C01312CD3A00C0BA44 /* HoursViewController.xib */; };
 		A1A67DBE131EA0040085A762 /* Hours.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A67DBD131EA0040085A762 /* Hours.m */; };
+		A1AAC4AB1327C42D0017310D /* second_floor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1AAC4AA1327C42D0017310D /* second_floor.jpg */; };
 		A1AC68391316B8B900194839 /* ulib_hours.xml in Resources */ = {isa = PBXBuildFile; fileRef = A1AC68381316B8B900194839 /* ulib_hours.xml */; };
 		A1AC683C1316BE7A00194839 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AC683A1316BE7A00194839 /* XPathQuery.m */; };
 		A1D5528813212651004B7536 /* ComputersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D5528613212651004B7536 /* ComputersViewController.m */; };
@@ -48,6 +49,7 @@
 		A108F6C01312CD3A00C0BA44 /* HoursViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HoursViewController.xib; path = Classes/HoursViewController.xib; sourceTree = "<group>"; };
 		A1A67DBC131EA0040085A762 /* Hours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hours.h; sourceTree = "<group>"; };
 		A1A67DBD131EA0040085A762 /* Hours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hours.m; sourceTree = "<group>"; };
+		A1AAC4AA1327C42D0017310D /* second_floor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = second_floor.jpg; sourceTree = "<group>"; };
 		A1AC68381316B8B900194839 /* ulib_hours.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ulib_hours.xml; sourceTree = "<group>"; };
 		A1AC683A1316BE7A00194839 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		A1AC683B1316BE7A00194839 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A1AAC4AA1327C42D0017310D /* second_floor.jpg */,
 				A1AC68381316B8B900194839 /* ulib_hours.xml */,
 				A1D5528713212651004B7536 /* ComputersViewController.xib */,
 				A1D597F4131562240016A58F /* HoursExceptionsViewController.xib */,
@@ -214,6 +217,7 @@
 				A1D597FD131562640016A58F /* HoursByDateViewController.xib in Resources */,
 				A1AC68391316B8B900194839 /* ulib_hours.xml in Resources */,
 				A1D5528913212651004B7536 /* ComputersViewController.xib in Resources */,
+				A1AAC4AB1327C42D0017310D /* second_floor.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

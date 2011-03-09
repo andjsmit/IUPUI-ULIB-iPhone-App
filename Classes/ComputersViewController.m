@@ -12,7 +12,7 @@
 
 @implementation ComputersViewController
 
-@synthesize type, name, locations;
+@synthesize type, name, locations, mapView;
 
 #pragma mark -
 #pragma mark Initializers
@@ -54,16 +54,58 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	//Floor maps dictionary
+	NSDictionary *floorMaps = [[NSDictionary alloc] initWithObjectsAndKeys:
+							   @"second_floor.jpg", @"2nd", nil];
+	
 	//Set title and locations
 	Computers *computers;
 	if ([type isEqualToString:@"default"] || [type isEqualToString:@"building"]) {
 		self.title = @"Building";
 		computers = [[Computers alloc] init];
 		[self setLocations:[computers locations]];
+		NSURL *mapURL = [NSURL URLWithString:@"http://m.ulib.iupui.edu/utility/computer_marquee2.php"];
+		UIImage *mapImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:mapURL]];
+		[mapView setImage:mapImage];
 	} else if ([type isEqualToString:@"floor"]) {
 		self.title = [name stringByAppendingString:@" Floor"];
 		computers = [[Computers alloc] initWithFloor:name];
 		[self setLocations:[computers locations]];
+		[mapView setImage:[UIImage imageNamed:[floorMaps objectForKey:name]]];
+	} else if ([type isEqualToString:@"lab"]) {
+		self.title = name;
+		computers = [[Computers alloc] initWithLab:name];
+        //Display map
+		NSDictionary *locDict = [[computers locations] objectAtIndex:0];
+		NSDictionary *locInfo = [locDict objectForKey:name];
+		NSURL *mapURL = [NSURL URLWithString:[locInfo objectForKey:@"map_url"]];
+		UIImage *mapImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:mapURL]];
+		[mapView setImage:mapImage];
+		//Special case for lab location info
+		//Need to create an array for computer types with avail and totals.
+		NSMutableArray *labInfo = [[NSMutableArray alloc] init];
+		[labInfo addObject:[NSString stringWithFormat:@"Computers   %@ / %@", 
+							[locInfo objectForKey:@"avail"], 
+							[locInfo objectForKey:@"total"]]];
+		if ([[locInfo objectForKey:@"win_total"] intValue] > 0){ 
+		[labInfo addObject:[NSString stringWithFormat:@"Windows     %@ / %@", 
+							[locInfo objectForKey:@"win_avail"], 
+							[locInfo objectForKey:@"win_total"]]];
+		}
+		if ([[locInfo objectForKey:@"mac_total"] intValue] > 0){ 
+			[labInfo addObject:[NSString stringWithFormat:@"Apple     %@ / %@", 
+								[locInfo objectForKey:@"mac_avail"], 
+								[locInfo objectForKey:@"mac_total"]]];
+		}
+		if ([[locInfo objectForKey:@"dual_total"] intValue] > 0){ 
+			[labInfo addObject:[NSString stringWithFormat:@"Dual-Boot     %@ / %@", 
+								[locInfo objectForKey:@"dual_avail"], 
+								[locInfo objectForKey:@"dual_total"]]];
+		}
+		
+		[self setLocations:labInfo];
+		NSLog(@"%@", labInfo);
+		
 	}
 	//self.title = type;
 	
@@ -118,7 +160,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
+	NSLog(@"Locations Count - %d", [[self locations] count]);
     return [[self locations] count];
+}
+
+//Set Header of Table View
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+
+	if ([type isEqualToString:@"lab"]) {
+		return name;
+	}
+	return nil;
 }
 
 
@@ -132,36 +184,29 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
-    /*
-	switch (indexPath.row) {
-		case 0:
-			cell.textLabel.text = @"Second";
-			cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-			break;
-		case 1:
-			cell.textLabel.text = @"Building";
-			cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-			break;
-		default:
-			cell.textLabel.text = @"Extra Cell";
-			break;
-	}
-	cell.textLabel.text = [labels objectForKey:@"label"];
-	cell.detailTextLabel.text = [labels objectForKey:@"detailLabel"];
-	*/
-	
-	NSDictionary *labels = [locations objectAtIndex:indexPath.row];
-	for (id labelKey in labels) {
-		if ([type isEqualToString:@"building"] || [type isEqualToString:@"default"]) {
+	if ([type isEqualToString:@"lab"]) {
+		cell.textLabel.text = [[self locations] objectAtIndex:indexPath.row];
+	} else {
+	  NSDictionary *labels = [locations objectAtIndex:indexPath.row];
+	  for (id labelKey in labels) {
+	  	  if ([type isEqualToString:@"building"] || [type isEqualToString:@"default"]) {
+			//Building View
 			cell.textLabel.text = [labelKey stringByAppendingString:@" Floor"];
-		} else {
+			cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+			NSDictionary *data = [labels objectForKey:labelKey];
+			cell.detailTextLabel.text = [NSString stringWithFormat:@"( %@ / %@ )", 
+										 [data objectForKey:@"avail"], 
+										 [data objectForKey:@"total"]];
+		  } else if ([type isEqualToString:@"floor"]) {
+			//Floor View
+			cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 			cell.textLabel.text = labelKey;
-	    }
-		NSDictionary *data = [labels objectForKey:labelKey];
-		cell.detailTextLabel.text = [NSString stringWithFormat:@"( %@ / %@ )", 
-									 [data objectForKey:@"avail"], 
-									 [data objectForKey:@"total"]]; 
+			NSDictionary *data = [labels objectForKey:labelKey];
+			cell.detailTextLabel.text = [NSString stringWithFormat:@"( %@ / %@ )", 
+										 [data objectForKey:@"avail"], 
+										 [data objectForKey:@"total"]];
+		  }
+	  }
 	}
 	
     return cell;
@@ -216,48 +261,25 @@
 	
 	if ([type isEqualToString:@"floor"]) {
 		//Floor Display
-		
-	} else {
-		//Building Display
-		
+		NSDictionary *labels = [locations objectAtIndex:indexPath.row];
+		for (id labelKey in labels) {
+			ComputersViewController *computersVC = [[ComputersViewController alloc] initWithType:@"lab" withName:labelKey];
+			[self.navigationController pushViewController:computersVC animated:YES];
+			[computersVC release];
+		}
+	} else if ([type isEqualToString:@"building"] || [type isEqualToString:@"default"]) {
+		//Building Display		
 		NSDictionary *labels = [locations objectAtIndex:indexPath.row];
 		for (id labelKey in labels) {
 			ComputersViewController *computersVC = [[ComputersViewController alloc] initWithType:@"floor" withName:labelKey];
 			[self.navigationController pushViewController:computersVC animated:YES];
 			[computersVC release];
-		/*	
-			cell.textLabel.text = labelKey;
-			NSDictionary *data = [labels objectForKey:labelKey];
-			cell.detailTextLabel.text = [NSString stringWithFormat:@"( %@ / %@ )", 
-										 [data objectForKey:@"avail"], 
-										 [data objectForKey:@"total"]]; 
-		*/
+
 		}
 		
+	} else {
+		
 	}
-
-	/*
-	switch (indexPath.row) {
-		case 0:
-		{
-			//Computers
-			ComputersViewController *computersVC = [[ComputersViewController alloc] initWithType:@"second"];
-			[self.navigationController pushViewController:computersVC animated:YES];
-			[computersVC release];
-			break;
-		}
-		case 1:
-		{
-			//Computers
-			ComputersViewController *computersVC = [[ComputersViewController alloc] initWithType:@"building"];
-			[self.navigationController pushViewController:computersVC animated:YES];
-			[computersVC release];
-			break;
-		}
-		default:
-			break;
-	}
-	*/
 	
 }
 

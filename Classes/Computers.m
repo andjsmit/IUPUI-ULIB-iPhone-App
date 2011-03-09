@@ -114,16 +114,78 @@
 	
 	//Individual Lab
 	if (self = [super init]) {
+		//Set type
+		[self setType:@"lab"];
 		
 		//Set filter
 		[self setFilter:filterType];
 		
-		//Get URL
-		//URL = http://ulib.iupui.edu/utility/seats.php?show=locations
+		//Set name
+		[self setName:lab];
+		
+		//Get data from URL for locations
+		NSURL *seatsURL = [NSURL URLWithString:@"http://ulib.iupui.edu/utility/seats.php?show=locations"];
+		NSData *data = [NSData dataWithContentsOfURL:seatsURL];
+		//Parse XML Data
+		//Using XPathQuery ( http://cocoawithlove.com/2008/10/using-libxml2-for-parsing-and-xpath.html )
+		NSString *seatsQuery;
+		NSArray *seatsNodes;
+		
+		seatsQuery = [NSString stringWithFormat: @"//seat[@lab='%@']", [self name]];
+		seatsNodes = PerformXMLXPathQuery(data, seatsQuery);
+		//NSLog(@"Array : %@",seatsNodes);
+		
+		NSMutableArray *tempLocations = [[NSMutableArray alloc] init];
+		for (NSDictionary *seatNode in seatsNodes) {
+			NSMutableDictionary *locInfo = [[NSMutableDictionary alloc] initWithCapacity:11];
+			NSString *locName;
+			//Get location info
+			for (NSDictionary *seatAttribute in [seatNode objectForKey:@"nodeAttributeArray"]){
+				if ([[seatAttribute objectForKey:@"attributeName"] isEqualToString:@"lab"]) {
+					locName = [seatAttribute objectForKey:@"nodeContent"];
+					//NSLog(@"Location Name - %@", locName);
+				} else if ([[seatAttribute objectForKey:@"attributeName"] isEqualToString:@"availability"]){
+					NSArray *availableTotal = [[seatAttribute objectForKey:@"nodeContent"] componentsSeparatedByString:@"/"];
+					//NSLog(@"Available - %@ | Total - %@", [availableTotal objectAtIndex:0], [availableTotal objectAtIndex:1]);
+					[locInfo setObject:[availableTotal objectAtIndex:0] forKey:@"avail"];
+					[locInfo setObject:[availableTotal objectAtIndex:1] forKey:@"total"];
+				} else if ([[seatAttribute objectForKey:@"attributeName"] isEqualToString:@"windows-availability"]){
+					NSArray *availableTotal = [[seatAttribute objectForKey:@"nodeContent"] componentsSeparatedByString:@"/"];
+					[locInfo setObject:[availableTotal objectAtIndex:0] forKey:@"win_avail"];
+					[locInfo setObject:[availableTotal objectAtIndex:1] forKey:@"win_total"];
+				} else if ([[seatAttribute objectForKey:@"attributeName"] isEqualToString:@"mac-availability"]){
+					NSArray *availableTotal = [[seatAttribute objectForKey:@"nodeContent"] componentsSeparatedByString:@"/"];
+					[locInfo setObject:[availableTotal objectAtIndex:0] forKey:@"mac_avail"];
+					[locInfo setObject:[availableTotal objectAtIndex:1] forKey:@"mac_total"];
+				} else if ([[seatAttribute objectForKey:@"attributeName"] isEqualToString:@"dual-availability"]){
+					NSArray *availableTotal = [[seatAttribute objectForKey:@"nodeContent"] componentsSeparatedByString:@"/"];
+					[locInfo setObject:[availableTotal objectAtIndex:0] forKey:@"dual_avail"];
+					[locInfo setObject:[availableTotal objectAtIndex:1] forKey:@"dual_total"];
+				} else if ([[seatAttribute objectForKey:@"attributeName"] isEqualToString:@"wheelchair-availability"]){
+					NSArray *availableTotal = [[seatAttribute objectForKey:@"nodeContent"] componentsSeparatedByString:@"/"];
+					[locInfo setObject:[availableTotal objectAtIndex:0] forKey:@"wheel_avail"];
+					[locInfo setObject:[availableTotal objectAtIndex:1] forKey:@"wheel_total"];
+				} else if ([[seatAttribute objectForKey:@"attributeName"] isEqualToString:@"floorplan"]){
+					[locInfo setObject:[seatAttribute objectForKey:@"nodeContent"] forKey:@"map_url"];
+				}
+			}
+			//Add Location to tempory locations if from right floor
+			NSDictionary *tempDict = [[NSDictionary alloc] initWithObjectsAndKeys:locInfo, locName, nil];
+			[tempLocations addObject:tempDict];
+			[tempDict release];
+			
+			//Clean up
+			[locInfo release];
+			
+		}
+		//Set Locations
+		[self setLocations:tempLocations];
+		NSLog(@"%@",[self locations]);
 		
 		
 		
-	}	
+	}
+	NSLog(@"Finished with Computers initWithLab");
 	return (self);
 }
 

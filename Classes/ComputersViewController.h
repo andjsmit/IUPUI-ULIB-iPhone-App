@@ -15,11 +15,13 @@
 	NSString* name;
 	NSArray* locations;
 	
+	IBOutlet UIImageView* mapView;
 }
 
 @property (nonatomic, retain) NSString *type;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSArray *locations;
+@property (nonatomic, retain) UIImageView *mapView;
 
 - (id)initWithType:(NSString *)t;
 - (id)initWithType:(NSString *)t withName:(NSString *)n;
