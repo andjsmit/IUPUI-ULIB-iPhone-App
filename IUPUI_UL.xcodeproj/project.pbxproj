@@ -19,6 +19,9 @@
 		A108F6C21312CD3A00C0BA44 /* HoursViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A108F6C01312CD3A00C0BA44 /* HoursViewController.xib */; };
 		A1A22D2E13291A4E0014243B /* fourth_floor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1A22D2C13291A4D0014243B /* fourth_floor.jpg */; };
 		A1A22D2F13291A4E0014243B /* third_floor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1A22D2D13291A4E0014243B /* third_floor.jpg */; };
+		A1A22D43132926CF0014243B /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A22D41132926CF0014243B /* NewsViewController.m */; };
+		A1A22D44132926CF0014243B /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A22D42132926CF0014243B /* NewsViewController.xib */; };
+		A1A22D68132931B30014243B /* NewsChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A22D67132931B30014243B /* NewsChannel.m */; };
 		A1A67DBE131EA0040085A762 /* Hours.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A67DBD131EA0040085A762 /* Hours.m */; };
 		A1AAC4AB1327C42D0017310D /* second_floor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1AAC4AA1327C42D0017310D /* second_floor.jpg */; };
 		A1AC68391316B8B900194839 /* ulib_hours.xml in Resources */ = {isa = PBXBuildFile; fileRef = A1AC68381316B8B900194839 /* ulib_hours.xml */; };
@@ -51,6 +54,11 @@
 		A108F6C01312CD3A00C0BA44 /* HoursViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HoursViewController.xib; path = Classes/HoursViewController.xib; sourceTree = "<group>"; };
 		A1A22D2C13291A4D0014243B /* fourth_floor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fourth_floor.jpg; sourceTree = "<group>"; };
 		A1A22D2D13291A4E0014243B /* third_floor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = third_floor.jpg; sourceTree = "<group>"; };
+		A1A22D40132926CF0014243B /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsViewController.h; path = ../NewsViewController.h; sourceTree = "<group>"; };
+		A1A22D41132926CF0014243B /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsViewController.m; path = ../NewsViewController.m; sourceTree = "<group>"; };
+		A1A22D42132926CF0014243B /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
+		A1A22D66132931B30014243B /* NewsChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsChannel.h; sourceTree = "<group>"; };
+		A1A22D67132931B30014243B /* NewsChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsChannel.m; sourceTree = "<group>"; };
 		A1A67DBC131EA0040085A762 /* Hours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hours.h; sourceTree = "<group>"; };
 		A1A67DBD131EA0040085A762 /* Hours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hours.m; sourceTree = "<group>"; };
 		A1AAC4AA1327C42D0017310D /* second_floor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = second_floor.jpg; sourceTree = "<group>"; };
@@ -87,16 +95,20 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1D3623240D0F684500981E51 /* IUPUI_ULAppDelegate.h */,
+				1D3623250D0F684500981E51 /* IUPUI_ULAppDelegate.m */,
+				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
+				28C286E00D94DF7D0034E888 /* RootViewController.m */,
 				A1D552D913213889004B7536 /* Computers.h */,
 				A1D552DA13213889004B7536 /* Computers.m */,
 				A1D5528513212651004B7536 /* ComputersViewController.h */,
 				A1D5528613212651004B7536 /* ComputersViewController.m */,
+				A1A22D66132931B30014243B /* NewsChannel.h */,
+				A1A22D67132931B30014243B /* NewsChannel.m */,
+				A1A22D40132926CF0014243B /* NewsViewController.h */,
+				A1A22D41132926CF0014243B /* NewsViewController.m */,
 				A1A67DBC131EA0040085A762 /* Hours.h */,
 				A1A67DBD131EA0040085A762 /* Hours.m */,
-				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
-				28C286E00D94DF7D0034E888 /* RootViewController.m */,
-				1D3623240D0F684500981E51 /* IUPUI_ULAppDelegate.h */,
-				1D3623250D0F684500981E51 /* IUPUI_ULAppDelegate.m */,
 				A108F6BE1312CD3A00C0BA44 /* HoursViewController.h */,
 				A108F6BF1312CD3A00C0BA44 /* HoursViewController.m */,
 				A1D597F2131562240016A58F /* HoursExceptionsViewController.h */,
@@ -152,6 +164,7 @@
 				28F335F01007B36200424DE2 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* IUPUI_UL-Info.plist */,
+				A1A22D42132926CF0014243B /* NewsViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -226,6 +239,7 @@
 				A1AAC4AB1327C42D0017310D /* second_floor.jpg in Resources */,
 				A1A22D2E13291A4E0014243B /* fourth_floor.jpg in Resources */,
 				A1A22D2F13291A4E0014243B /* third_floor.jpg in Resources */,
+				A1A22D44132926CF0014243B /* NewsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +260,8 @@
 				A1A67DBE131EA0040085A762 /* Hours.m in Sources */,
 				A1D5528813212651004B7536 /* ComputersViewController.m in Sources */,
 				A1D552DB13213889004B7536 /* Computers.m in Sources */,
+				A1A22D43132926CF0014243B /* NewsViewController.m in Sources */,
+				A1A22D68132931B30014243B /* NewsChannel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
