@@ -45,7 +45,12 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark Actions
 
+- (IBAction)filterSelect:(id)sender{
+	//Set Filter
+}
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -56,7 +61,9 @@
 	
 	//Floor maps dictionary
 	NSDictionary *floorMaps = [[NSDictionary alloc] initWithObjectsAndKeys:
-							   @"second_floor.jpg", @"2nd", nil];
+							   @"second_floor.jpg", @"2nd", 
+							   @"third_floor.jpg", @"3rd",
+							   @"fourth_floor.jpg", @"4th", nil];
 	
 	//Set title and locations
 	Computers *computers;
@@ -67,6 +74,15 @@
 		NSURL *mapURL = [NSURL URLWithString:@"http://m.ulib.iupui.edu/utility/computer_marquee2.php"];
 		UIImage *mapImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:mapURL]];
 		[mapView setImage:mapImage];
+		//Add Filter Button - FUTURE FEATURE
+        /*
+		UIBarButtonItem *filterButton = [[UIBarButtonItem alloc]
+										 initWithTitle:@"Filter" 
+										 style:UIBarButtonItemStylePlain
+										 target:self 
+										 action:@selector(filterSelect:)];
+		[[self navigationItem] setRightBarButtonItem:filterButton];
+		*/
 	} else if ([type isEqualToString:@"floor"]) {
 		self.title = [name stringByAppendingString:@" Floor"];
 		computers = [[Computers alloc] initWithFloor:name];

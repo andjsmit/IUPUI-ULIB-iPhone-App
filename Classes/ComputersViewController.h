@@ -25,4 +25,7 @@
 
 - (id)initWithType:(NSString *)t;
 - (id)initWithType:(NSString *)t withName:(NSString *)n;
+
+- (IBAction)filterSelect:(id)sender;
+
 @end
