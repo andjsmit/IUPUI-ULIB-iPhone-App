@@ -26,6 +26,8 @@
 		A1AAC4AB1327C42D0017310D /* second_floor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1AAC4AA1327C42D0017310D /* second_floor.jpg */; };
 		A1AC68391316B8B900194839 /* ulib_hours.xml in Resources */ = {isa = PBXBuildFile; fileRef = A1AC68381316B8B900194839 /* ulib_hours.xml */; };
 		A1AC683C1316BE7A00194839 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AC683A1316BE7A00194839 /* XPathQuery.m */; };
+		A1BE63CC132E4822001E10D4 /* NewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BE63CB132E4822001E10D4 /* NewsItem.m */; };
+		A1BE63FC132E584B001E10D4 /* NewsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BE63FB132E584B001E10D4 /* NewsWebViewController.m */; };
 		A1D5528813212651004B7536 /* ComputersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D5528613212651004B7536 /* ComputersViewController.m */; };
 		A1D5528913212651004B7536 /* ComputersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D5528713212651004B7536 /* ComputersViewController.xib */; };
 		A1D552DB13213889004B7536 /* Computers.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D552DA13213889004B7536 /* Computers.m */; };
@@ -65,6 +67,10 @@
 		A1AC68381316B8B900194839 /* ulib_hours.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ulib_hours.xml; sourceTree = "<group>"; };
 		A1AC683A1316BE7A00194839 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		A1AC683B1316BE7A00194839 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		A1BE63CA132E4822001E10D4 /* NewsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsItem.h; sourceTree = "<group>"; };
+		A1BE63CB132E4822001E10D4 /* NewsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsItem.m; sourceTree = "<group>"; };
+		A1BE63FA132E584B001E10D4 /* NewsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWebViewController.h; sourceTree = "<group>"; };
+		A1BE63FB132E584B001E10D4 /* NewsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsWebViewController.m; sourceTree = "<group>"; };
 		A1D5528513212651004B7536 /* ComputersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComputersViewController.h; sourceTree = "<group>"; };
 		A1D5528613212651004B7536 /* ComputersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComputersViewController.m; sourceTree = "<group>"; };
 		A1D5528713212651004B7536 /* ComputersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ComputersViewController.xib; path = Classes/ComputersViewController.xib; sourceTree = "<group>"; };
@@ -105,8 +111,12 @@
 				A1D5528613212651004B7536 /* ComputersViewController.m */,
 				A1A22D66132931B30014243B /* NewsChannel.h */,
 				A1A22D67132931B30014243B /* NewsChannel.m */,
+				A1BE63CA132E4822001E10D4 /* NewsItem.h */,
+				A1BE63CB132E4822001E10D4 /* NewsItem.m */,
 				A1A22D40132926CF0014243B /* NewsViewController.h */,
 				A1A22D41132926CF0014243B /* NewsViewController.m */,
+				A1BE63FA132E584B001E10D4 /* NewsWebViewController.h */,
+				A1BE63FB132E584B001E10D4 /* NewsWebViewController.m */,
 				A1A67DBC131EA0040085A762 /* Hours.h */,
 				A1A67DBD131EA0040085A762 /* Hours.m */,
 				A108F6BE1312CD3A00C0BA44 /* HoursViewController.h */,
@@ -262,6 +272,8 @@
 				A1D552DB13213889004B7536 /* Computers.m in Sources */,
 				A1A22D43132926CF0014243B /* NewsViewController.m in Sources */,
 				A1A22D68132931B30014243B /* NewsChannel.m in Sources */,
+				A1BE63CC132E4822001E10D4 /* NewsItem.m in Sources */,
+				A1BE63FC132E584B001E10D4 /* NewsWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,8 +8,12 @@
 
 #import "NewsViewController.h"
 #import "NewsChannel.h"
+#import "NewsItem.h"
+#import "NewsWebViewController.h"
 
 @implementation NewsViewController
+
+@synthesize webViewController;
 
 #pragma mark -
 #pragma mark My Methods
@@ -148,7 +152,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    //return 0;
+	return [[channel items] count];
 }
 
 
@@ -164,6 +169,10 @@
     
     // Configure the cell...
     
+	NewsItem *item = [[channel items] objectAtIndex:[indexPath row]];
+	[[cell textLabel] setText:[item title]];
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	
     return cell;
 }
 
@@ -213,13 +222,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-    // ...
-    // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-    */
+	
+	//NewsViewController *newsVC = [[NewsViewController alloc] init];
+    NewsWebViewController *newsWVC = [[NewsWebViewController alloc] init];
+	[[self navigationController] pushViewController:newsWVC animated:YES];
+	NewsItem *entry = [[channel items] objectAtIndex:[indexPath row]];
+	NSURL *url = [NSURL URLWithString:[entry link]];
+	NSURLRequest *req = [NSURLRequest requestWithURL:url];
+	[[newsWVC webView] loadRequest:req];
+	[[newsWVC navigationItem] setTitle:[entry title]];
+	
 }
 
 

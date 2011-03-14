@@ -7,6 +7,7 @@
 //
 
 #import "NewsChannel.h"
+#import "NewsItem.h"
 
 
 @implementation NewsChannel
@@ -25,6 +26,12 @@ didStartElement:(NSString *)elementName
 	} else if ([elementName isEqual:@"description"]) {
 		currentString = [[NSMutableString alloc] init];
 		[self setShortDescription:currentString];
+	} else if ([elementName isEqual:@"item"]) {
+		NewsItem *entry = [[NewsItem alloc] init];
+		[entry setParentParserDelegate:self];
+		[parser setDelegate:entry];
+		[items addObject:entry];
+		[entry release];
 	}
 }
 

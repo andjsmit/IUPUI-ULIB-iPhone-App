@@ -88,23 +88,23 @@
 	switch (indexPath.row) {
 		case 0:
 			cell.textLabel.text = @"Hours";
-			cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			break;
 		case 1:
 			cell.textLabel.text = @"Available Computers";
-			cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			break;
 		case 2:
 			cell.textLabel.text = @"News & Events";
-			cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			break;
 		case 3:
 			cell.textLabel.text = @"Study Rooms";
-			cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			break;
 		case 4:
 			cell.textLabel.text = @"Mobile Research";
-			cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			break;
 
 		default:

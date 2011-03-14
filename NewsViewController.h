@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class NewsChannel;
-
+@class NewsWebViewController;
 
 @interface NewsViewController : UITableViewController <NSXMLParserDelegate> {
 	
@@ -17,8 +17,10 @@
 	NSMutableData *xmlData;
 
 	NewsChannel *channel;
+	
+	NewsWebViewController *webViewController;
 }
-
+@property (nonatomic, retain) NewsWebViewController *webViewController;
 - (void) fetchEntries;
 
 @end

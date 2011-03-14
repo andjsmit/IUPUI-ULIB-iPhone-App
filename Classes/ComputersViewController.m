@@ -208,7 +208,7 @@
 	  	  if ([type isEqualToString:@"building"] || [type isEqualToString:@"default"]) {
 			//Building View
 			cell.textLabel.text = [labelKey stringByAppendingString:@" Floor"];
-			cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			NSDictionary *data = [labels objectForKey:labelKey];
 			cell.detailTextLabel.text = [NSString stringWithFormat:@"( %@ / %@ )", 
 										 [data objectForKey:@"avail"], 
