@@ -22,7 +22,7 @@
 	
 	[xmlData release];
 	xmlData = [[NSMutableData alloc] init];
-	NSURL *url = [NSURL URLWithString:@"http://www.ulib.iupui.edu/views/news_feed"];
+	NSURL *url = [NSURL URLWithString:@"http://m.ulib.iupui.edu/views/news_feed"];
 	NSURLRequest *req = [NSURLRequest requestWithURL:url];
 	connection = [[NSURLConnection alloc] initWithRequest:req delegate:self startImmediately:YES];
 	
