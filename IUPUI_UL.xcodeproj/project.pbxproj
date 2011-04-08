@@ -35,6 +35,9 @@
 		A1D597F6131562240016A58F /* HoursExceptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D597F4131562240016A58F /* HoursExceptionsViewController.xib */; };
 		A1D597FC131562640016A58F /* HoursByDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D597FA131562640016A58F /* HoursByDateViewController.m */; };
 		A1D597FD131562640016A58F /* HoursByDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D597FB131562640016A58F /* HoursByDateViewController.xib */; };
+		A1E8C35E13391EF5004DC87C /* RoomsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E8C35C13391EF5004DC87C /* RoomsWebViewController.m */; };
+		A1E8C35F13391EF5004DC87C /* RoomsWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E8C35D13391EF5004DC87C /* RoomsWebViewController.xib */; };
+		A1FEA19E134F372500BE886B /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FEA19D134F372500BE886B /* Weather.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +85,11 @@
 		A1D597F9131562640016A58F /* HoursByDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoursByDateViewController.h; path = ../HoursByDateViewController.h; sourceTree = "<group>"; };
 		A1D597FA131562640016A58F /* HoursByDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoursByDateViewController.m; path = ../HoursByDateViewController.m; sourceTree = "<group>"; };
 		A1D597FB131562640016A58F /* HoursByDateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoursByDateViewController.xib; sourceTree = "<group>"; };
+		A1E8C35B13391EF5004DC87C /* RoomsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomsWebViewController.h; sourceTree = "<group>"; };
+		A1E8C35C13391EF5004DC87C /* RoomsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomsWebViewController.m; sourceTree = "<group>"; };
+		A1E8C35D13391EF5004DC87C /* RoomsWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RoomsWebViewController.xib; path = Classes/RoomsWebViewController.xib; sourceTree = "<group>"; };
+		A1FEA19C134F372500BE886B /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
+		A1FEA19D134F372500BE886B /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +113,8 @@
 				1D3623250D0F684500981E51 /* IUPUI_ULAppDelegate.m */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
+				A1FEA19C134F372500BE886B /* Weather.h */,
+				A1FEA19D134F372500BE886B /* Weather.m */,
 				A1D552D913213889004B7536 /* Computers.h */,
 				A1D552DA13213889004B7536 /* Computers.m */,
 				A1D5528513212651004B7536 /* ComputersViewController.h */,
@@ -117,6 +127,8 @@
 				A1A22D41132926CF0014243B /* NewsViewController.m */,
 				A1BE63FA132E584B001E10D4 /* NewsWebViewController.h */,
 				A1BE63FB132E584B001E10D4 /* NewsWebViewController.m */,
+				A1E8C35B13391EF5004DC87C /* RoomsWebViewController.h */,
+				A1E8C35C13391EF5004DC87C /* RoomsWebViewController.m */,
 				A1A67DBC131EA0040085A762 /* Hours.h */,
 				A1A67DBD131EA0040085A762 /* Hours.m */,
 				A108F6BE1312CD3A00C0BA44 /* HoursViewController.h */,
@@ -163,6 +175,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A1E8C35D13391EF5004DC87C /* RoomsWebViewController.xib */,
 				A1A22D2C13291A4D0014243B /* fourth_floor.jpg */,
 				A1A22D2D13291A4E0014243B /* third_floor.jpg */,
 				A1AAC4AA1327C42D0017310D /* second_floor.jpg */,
@@ -250,6 +263,7 @@
 				A1A22D2E13291A4E0014243B /* fourth_floor.jpg in Resources */,
 				A1A22D2F13291A4E0014243B /* third_floor.jpg in Resources */,
 				A1A22D44132926CF0014243B /* NewsViewController.xib in Resources */,
+				A1E8C35F13391EF5004DC87C /* RoomsWebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +288,8 @@
 				A1A22D68132931B30014243B /* NewsChannel.m in Sources */,
 				A1BE63CC132E4822001E10D4 /* NewsItem.m in Sources */,
 				A1BE63FC132E584B001E10D4 /* NewsWebViewController.m in Sources */,
+				A1E8C35E13391EF5004DC87C /* RoomsWebViewController.m in Sources */,
+				A1FEA19E134F372500BE886B /* Weather.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

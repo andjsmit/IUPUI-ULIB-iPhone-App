@@ -10,6 +10,8 @@
 #import "HoursViewController.h"
 #import "ComputersViewController.h"
 #import "NewsViewController.h"
+#import "RoomsWebViewController.h"
+#import "Weather.h"
 
 @implementation RootViewController
 
@@ -21,10 +23,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+	
+	Weather *weather = [[Weather alloc] init];
+	[weather queryService:[NSString stringWithFormat:@"indianapolis"]];
 	self.title = @"IUPUI University Library";
 	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	
+	//[weather release];
 }
 
 /*
@@ -188,6 +195,18 @@
 			[newsVC release];
 			break;
 		}
+	    case 3:
+		{
+			RoomsWebViewController *roomsWVC = [[RoomsWebViewController alloc] init];
+			[[self navigationController] pushViewController:roomsWVC animated:YES];
+			//Following line for testing only -- Bypasses problem of invalid certificate.
+			[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"134.68.173.205"];
+			NSURL *url = [NSURL URLWithString:@"https://134.68.173.205/openrooms"];
+			NSURLRequest *req = [NSURLRequest requestWithURL:url];
+			[[roomsWVC webView] loadRequest:req];
+			[[roomsWVC navigationItem] setTitle:@"Study Rooms"];
+			break;
+		}
 		default:
 			break;
 	}
@@ -211,6 +230,7 @@
 
 
 - (void)dealloc {
+	
     [super dealloc];
 }
 
